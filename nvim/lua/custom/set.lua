@@ -28,4 +28,4 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 -- colorcolumn transparent
 vim.cmd("hi ColorColumn ctermbg=none guibg=#1e222a")
-
+-- print("set.lua loaded")
