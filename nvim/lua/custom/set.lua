@@ -19,10 +19,13 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+-- signcolumn transparent
+vim.cmd("hi SignColumn ctermbg=none guibg=none")
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
-
+-- colorcolumn transparent
+vim.cmd("hi ColorColumn ctermbg=none guibg=#1e222a")
 

@@ -26,6 +26,26 @@ return function(use)
     -- end
   })
   use({
+    'akinsho/toggleterm.nvim',
+    -- config = function()
+    -- end
+  })
+  use({
+    'christoomey/vim-tmux-navigator'
+    -- config = function()
+    -- end
+  })
+  use({
+    'folke/zen-mode.nvim',
+    -- config = function()
+    -- end
+  })
+  use({
+    'github/copilot.vim',
+    -- config = function()
+    -- end
+  })
+  use({
     'folke/tokyonight.nvim',
     as = 'tokyonight',
     config = function()
@@ -70,13 +90,12 @@ return function(use)
             h5 = 'pine',
             h6 = 'foam',
           }
-          -- or set all headings at once
-          -- headings = 'subtle'
+          -- or set all headings at once headings = 'subtle'
         },
 
         -- Change specific vim highlight groups
         highlight_groups = {
-          ColorColumn = { bg = 'rose' }
+          -- ColorColumn = { bg = 'rose' }
         }
       })
 

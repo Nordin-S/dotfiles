@@ -36,3 +36,18 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+
+-- copilot
+vim.cmd [[imap <silent><script><expr> <M-a> copilot#Accept("\<CR>")]]
+vim.g.copilot_no_tab_map = true
+vim.keymap.set("i", "<M-j>", "<Plug>(copilot-next)", { noremap = false })
+vim.keymap.set("i", "<M-k>", "<Plug>(copilot-previous)", { noremap = false })
+vim.keymap.set("i", "<M-n>", "<Plug>(copilot-dismiss)", { noremap = false })
+
+-- tmux navigator
+vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+

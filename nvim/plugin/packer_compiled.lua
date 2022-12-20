@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/home/nroot/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -168,7 +173,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["rose-pine"] = {
-    config = { "\27LJ\2\2ù\3\0\0\4\0\15\0\0196\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0005\3\5\0=\3\6\2=\2\a\0015\2\t\0005\3\b\0=\3\n\2=\2\v\1B\0\2\0016\0\f\0009\0\r\0'\1\14\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\21highlight_groups\16ColorColumn\1\0\0\1\0\1\abg\trose\vgroups\rheadings\1\0\6\ah5\tpine\ah6\tfoam\ah3\trose\ah4\tgold\ah1\tiris\ah2\tfoam\1\0\n\thint\tiris\16punctuation\vsubtle\fcomment\nmuted\twarn\tgold\npanel\fsurface\tlink\tiris\vborder\18highlight_med\nerror\tlove\15background\tbase\tinfo\tfoam\1\0\6\22dim_nc_background\1\29disable_float_background\1\23disable_background\1\20disable_italics\1\20bold_vert_split\1\17dark_variant\tmain\nsetup\14rose-pine\frequire\0" },
+    config = { "\27LJ\2\2×\3\0\0\4\0\f\0\0176\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0005\3\5\0=\3\6\2=\2\a\0014\2\0\0=\2\b\1B\0\2\0016\0\t\0009\0\n\0'\1\v\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\21highlight_groups\vgroups\rheadings\1\0\6\ah5\tpine\ah6\tfoam\ah3\trose\ah4\tgold\ah1\tiris\ah2\tfoam\1\0\n\thint\tiris\16punctuation\vsubtle\fcomment\nmuted\twarn\tgold\npanel\fsurface\tlink\tiris\vborder\18highlight_med\nerror\tlove\15background\tbase\tinfo\tfoam\1\0\6\22dim_nc_background\1\29disable_float_background\1\23disable_background\1\20disable_italics\1\20bold_vert_split\1\17dark_variant\tmain\nsetup\14rose-pine\frequire\0" },
     loaded = true,
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
@@ -185,6 +190,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/nroot/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   tokyonight = {
     config = { "\27LJ\2\2\v\0\0\1\0\0\0\1K\0\1\0\0" },
@@ -212,11 +222,21 @@ _G.packer_plugins = {
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
   },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/home/nroot/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   ["which-key.nvim"] = {
     config = { "\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
     loaded = true,
     path = "/home/nroot/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/nroot/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
@@ -231,7 +251,7 @@ try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\
 time([[Config for harpoon]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\2ù\3\0\0\4\0\15\0\0196\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0005\3\5\0=\3\6\2=\2\a\0015\2\t\0005\3\b\0=\3\n\2=\2\v\1B\0\2\0016\0\f\0009\0\r\0'\1\14\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\21highlight_groups\16ColorColumn\1\0\0\1\0\1\abg\trose\vgroups\rheadings\1\0\6\ah5\tpine\ah6\tfoam\ah3\trose\ah4\tgold\ah1\tiris\ah2\tfoam\1\0\n\thint\tiris\16punctuation\vsubtle\fcomment\nmuted\twarn\tgold\npanel\fsurface\tlink\tiris\vborder\18highlight_med\nerror\tlove\15background\tbase\tinfo\tfoam\1\0\6\22dim_nc_background\1\29disable_float_background\1\23disable_background\1\20disable_italics\1\20bold_vert_split\1\17dark_variant\tmain\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
+try_loadstring("\27LJ\2\2×\3\0\0\4\0\f\0\0176\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0005\3\5\0=\3\6\2=\2\a\0014\2\0\0=\2\b\1B\0\2\0016\0\t\0009\0\n\0'\1\v\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\21highlight_groups\vgroups\rheadings\1\0\6\ah5\tpine\ah6\tfoam\ah3\trose\ah4\tgold\ah1\tiris\ah2\tfoam\1\0\n\thint\tiris\16punctuation\vsubtle\fcomment\nmuted\twarn\tgold\npanel\fsurface\tlink\tiris\vborder\18highlight_med\nerror\tlove\15background\tbase\tinfo\tfoam\1\0\6\22dim_nc_background\1\29disable_float_background\1\23disable_background\1\20disable_italics\1\20bold_vert_split\1\17dark_variant\tmain\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
