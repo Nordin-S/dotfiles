@@ -1,7 +1,12 @@
   "http://ideavim.sourceforge.net/vim/
   "https://github.com/JetBrains/ideavim/blob/master/doc/set-commands.md
   "https://gist.github.com/zchee/9c78f91cc5ad771c1f5d " action list
-
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+" Plug 'tpope/vim-commentary'
+" Plug 'tommcdo/vim-exchange'
 " set commands -----------------------------------------------------------------
 set number
 set relativenumber
@@ -14,7 +19,7 @@ set matchpairs
 set undolevels=2000 "undolevels
 set nrformats
 set visualbell
-set scrolloff=3
+set scrolloff=8
 set showmode
 set clipboard+=unnamed
 "set idearefactormode=visual
@@ -24,53 +29,44 @@ set highlightedyank
 set NERDTree
 set cursorline
 
-set softtabstop=0
-set tabstop=4
-set shiftwidth=4
+set tabstop=8
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set updatetime=100
 set showmatch
-
-
+set notimeout
+"set timeoutlen=5000
+set which-key
 let mapleader=" "
-" set easymotion
+set easymotion
 
-  " https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
-    " Plug 'tpope/vim-surround'
-    " Plug 'tpope/vim-commentary'
-    " Plug 'tommcdo/vim-exchange'
-    " Plug 'tpope/vim-commentary'
-    " Plug 'easymotion/vim-easymotion'
-    "
-    "   " https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands
-    "   nmap <leader><leader>l <Plug>(easymotion-lineforward)
-    "   nmap <leader><leader>b <Plug>(easymotion-linebackward)
-    "   nmap <leader><leader>j <Plug>(easymotion-j)
-    "   nmap <leader><leader>k <Plug>(easymotion-k)
-    "   nmap <leader><leader>a <Plug>(easymotion-jumptoanywhere)
-    "   nmap <leader><leader>f <Plug>(easymotion-f)
-    "
-    "   let g:EasyMotion_smartcase = 1
-    "   nmap ss <Plug>(easymotion-s2)
 
-  " https://github.com/JetBrains/ideavim/wiki/NERDTree-support
-  Plug 'preservim/nerdtree'
+nmap <leader><leader>l <Plug>(easymotion-lineforward)
+nmap <leader><leader>h <Plug>(easymotion-linebackward)
+nmap <leader><leader>j <Plug>(easymotion-j)
+nmap <leader><leader>k <Plug>(easymotion-k)
+nmap <leader><leader>a <Plug>(easymotion-jumptoanywhere)
+nmap <leader><leader>f <Plug>(easymotion-f)
+nmap <leader><leader>F <Plug>(easymotion-F)
 
-    nmap \f :NERDTreeFind<CR>
-    "nmap <leader>nn :NERDTree<CR>
+let g:EasyMotion_smartcase = 1
+nnoremap ss <Plug>(easymotion-s2)
 
-  " ideavim only
-  set ideajoin
-  set ideamarks
+" ideavim only
+set ideajoin
+set ideamarks
 
 
 
 """"""""""""""""""""""""""""""""""""""Basics""""""""""""""""""""""""""""""""""""""
 "debug Artifact
-nmap <C-j> :action StepOver<CR>
-nmap <C-k> :action Resume<CR>
-nmap <C-h> :action StepOut<CR>
-nmap <C-l> :action ForceStepInto<CR>
+nmap <leader>do :action StepOver<CR>
+nmap <leader>dr :action Resume<CR>
+nmap <leader>dO :action StepOut<CR>
+nmap <leader>di :action ForceStepInto<CR>
+"nmap <leader>ds :action Stop<CR>
+
 "Mobile specialization
 " vmap <C-j> <C-e>
 " vmap <C-k> <C-y>
@@ -84,6 +80,9 @@ nmap <C-l> :action ForceStepInto<CR>
 "Left and right vision
 nnoremap zH 50zh
 nnoremap zL 50zl
+nnoremap <leader><leader>v :e  C:\Users\nordi\.ideavimrc<CR>
+nnoremap <leader>x <Esc>:wq <CR>
+imap <leader>x <Esc>:wq <CR>
 """"""""""""""""""""""""""""""""""""""Refactoring""""""""""""""""""""""""""""""""""""""
 noremap     <leader>re :action RenameElement<CR>
 noremap     <leader>mv :action Move<CR>
@@ -104,7 +103,7 @@ noremap     <leader>pu :action MembersPullUp<CR>
 noremap     <leader>cn :action RenameFile<CR>
 noremap     <leader>cs :action ChangeSignature<CR>
 noremap     <leader>ai :action AnonymousToInner<CR>
-vmap        <leader>rs :action Refactorings.QuickListPopupAction<cr>
+noremap     <leader>rs :action Refactorings.QuickListPopupAction<cr>
 """"""""""""""""""""""""""""""""""""""Jump articles""""""""""""""""""""""""""""""""""""""
 noremap     <leader>te :action SearchEverywhere<CR>
 nnoremap    <leader>ts mm`m:action GotoSymbol<CR>
@@ -138,7 +137,7 @@ noremap     <leader>dd :action Debug<CR>
 noremap     <leader>dc :action DebugClass<CR>
 noremap     <leader>cc :action Coverage<CR>
 noremap     <leader>rcv :action RunCoverage<CR>
-noremap     <leader>sp   :action Stop<CR>
+noremap     <leader>se   :action Stop<CR>
 """"""""""""""""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""""""""
 noremap     <leader>bp :action ToggleLineBreakpoint<CR>
 noremap     <leader>qe :action QuickEvaluateExpression <CR>
@@ -167,11 +166,17 @@ noremap     <leader>AR :action ActivateRestServicesToolWindow<CR>
 nnoremap    <leader>wd :action ActivateDebugToolWindow<CR>
 nnoremap    <leader>wr :action ActivateRunToolWindow<CR>
 nnoremap    <leader>wh :action HideActiveWindow<CR>
-nnoremap    <leader>mm :action MaximizeToolWindow<CR>
+nnoremap    <leader>mt :action MaximizeToolWindow<CR>
 noremap     <leader>ha :action HideAllWindows<CR>
-noremap     <leader>zm :action ToggleZenMode<cr>
 noremap     <leader>si :action SelectInProjectView<CR>
 noremap     <leader>eb :action EditBreakpoint<CR>
+noremap     <leader>sm :action ShowPopupMenu<CR>
+noremap     <leader>mm :action MainMenu<CR>
+nnoremap    <leader>vm :action ChangeView<CR>
+"noremap     <leader>zm :action ToggleZenMode<cr>
+"noremap     <leader>zp :action TogglePresentationMode<cr>
+"noremap     <leader>zd :action ToggleDistractionFreeMode<cr>
+noremap     <leader>tm :action ViewTheme<cr>
 """"""""""""""""""""""""""""""""""""""Information""""""""""""""""""""""""""""""""""""""
 noremap     <leader>ed :action ShowErrorDescription<CR>
 noremap     <leader>ti :action ExpressionTypeInfo<CR>
@@ -185,6 +190,10 @@ nnoremap    <leader>su :action ShowUsages<CR>
 noremap     <leader>mh :action MethodHierarchy<CR>
 noremap     <leader>ss  :action ShowSettings<CR>
 noremap     <leader>ps :action ShowProjectStructureSettings<CR>
+
+// show search everywhere
+noremap     <leader>sy :action SearchSymbols<CR>
+
 """"""""""""""""""""""""""""""""""""""Project""""""""""""""""""""""""""""""""""""""
 noremap     <leader>CP :action CloseProject<CR>
 noremap     <leader>OP :action OpenFile<CR>
@@ -192,12 +201,11 @@ noremap     <leader>NP :action NewProject<CR>
 """"""""""""""""""""""""""""""""""""""Utilities""""""""""""""""""""""""""""""""
 noremap     <leader>sw :action SurroundWith<CR>
 noremap     <leader>= :action ReformatCode<CR>
-noremap     <leader>sm :action ShowPopupMenu<CR>
+
 noremap     <leader>st :action SaveAsTemplate<CR>
 noremap     <leader>cap   :action CopyAbsolutePath<CR>
 noremap     <leader>ccp   :action CopyContentRootPath<CR>
 noremap     <leader>oi :action OptimizeImports<CR>
-nnoremap    <leader>cv :action ChangeView<CR>
 noremap     <leader>co :action CloseAllEditorsButActive<CR>
 noremap     <leader>ag :action antlr.Generate<CR>:action antlr.Generate<CR>
 noremap     <leader>bc   :action ByteCodeViewer<CR>
@@ -209,7 +217,7 @@ noremap     <leader>cE :action CopyElement<CR>
 noremap     <leader>nE :action NewElement<CR>
 noremap     <leader>SD :action SafeDelete<CR>
 nnoremap    <leader>cp :action CheckinProject<CR>
-noremap     <leader>nc :action NewClass<CR>
+nnoremap    <leader>nc :action NewClass<CR>
 noremap     <leader>ri :action RevealIn<CR>
 noremap     <leader>ga :action Generate<CR>
 noremap     <leader>cu :action CloseAllUnmodifiedEditors<CR>
@@ -225,23 +233,25 @@ nmap zk O<Esc>j
 nmap <a-j> 15gj
 nmap <a-k> 15gk
 
-" push lines away from current line
-nnoremap <leader><leader>j O<esc>j
-nnoremap <leader><leader>k o<esc>k
-
 " Moving lines
-vnoremap [l :action MoveLineUp<cr>
-vnoremap ]l :action MoveLineDown<cr>
+noremap <S-j> :action MoveLineDown<cr>
+noremap <S-k> :action MoveLineUp<cr>
 
 " Moving statements
 vnoremap [s :action MoveStatementUp<cr>
 vnoremap ]s :action MoveStatementDown<cr>
 
+" Multiline cursors plugin
+map mc <A-N>
+map mx <A-x>
+map mp <A-p>
 " Moving cursor in insert mode
 imap <C-e> <END>
-imap <C-a> <HOME>
-imap <C-f> <Right>
-imap <C-b> <Left>
+imap <C-b> <HOME>
+imap <C-l> <Right>
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
 
 :map <leader>l <Action>(HighlightUsagesInFile)
 
@@ -256,8 +266,11 @@ imap <C-b> <Left>
 
   nnoremap Y y$
   nnoremap <Tab><Tab>y "+y
-  vnoremap <Tab><Tab>y "+y
-  nnoremap <Tab><Tab>p "+p
+  nnoremap <Tab><Tab>p Vp
+
+  vnoremap <Tab><Tab>p Vp
+  nnoremap <Tab><Tab>y ggVGy<Esc>
+  vnoremap <Tab><Tab>y ggVGy<Esc>
   nnoremap <Tab><Tab>a ggVG
   vnoremap <Tab><Tab>a ggVG
 
@@ -282,37 +295,45 @@ nnoremap ]m :action MethodDown<CR>
 onoremap [m :action MethodUp<CR>
 onoremap ]m :action MethodDown<CR>
 
-nnoremap <C-S-5> :action EditorMatchBrace<CR>
+nnoremap <Tab>m :action EditorMatchBrace<CR>
 nnoremap <Tab>f :action QuickFixes<CR>
-nnoremap <Tab>or :action CloseAllToTheRight<CR>
-nnoremap <Tab>ol :action CloseAllToTheLeft<CR>
+nnoremap <Tab>r :action CloseAllToTheRight<CR>
+nnoremap <Tab>l :action CloseAllToTheLeft<CR>
 nnoremap <Tab>i :action InspectCode<CR>
 
-nnoremap <Space>v :action CopyPaths<CR>
+nnoremap <Tab>v :action CopyPaths<CR>
 
+nnoremap zC :action CollapseAll<CR>
+nnoremap zO :action ExpandAll<CR>
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap zr :action ExpandRegionRecursively<CR>
+nnoremap zm :action CollapseRegionRecursively<CR>
 
 " tabs manipulation
-nmap <leader>q :action CloseContent<cr>
-nmap <leader>Q :action ReopenClosedTab<cr>
-nnoremap [b :action PreviousTab<cr>
-nnoremap ]b :action NextTab<cr>
+nnoremap <leader>x :action CloseContent<cr>
+nnoremap <leader>X :action ReopenClosedTab<cr>
+nnoremap <c-h> :action PreviousTab<cr>
+nnoremap <c-l> :action NextTab<cr>
 nmap \p :action PinActiveTabToggle<cr>
+nnoremap <leader>hh :action GoToTab1<CR>
+nnoremap <leader>jj :action GoToTab2<CR>
+nnoremap <leader>kk :action GoToTab3<CR>
+nnoremap <leader>ll :action GoToTab4<CR>
+nnoremap <leader>;; :action GoToTab5<CR>
 "nnoremap <leader><leader> <C-S-6>
-  nnoremap gl 1gtgT
-  nnoremap gf 1gt
-
 
 " Splits manipulation
 nmap <c-w>C :action UnsplitAll<cr>
 nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
 
-
 " Navigation
-nmap <leader>h :action Back<cr>
-nmap <leader>l :action Forward<cr>
+nmap <c-k> :action Back<cr>
+nmap <c-j> :action Forward<cr>
 " built-in navigation to navigated items works better
-:map <c-o> <Action>(Back)
-:map <c-i> <Action>(Forward)
+":nmap <c-o> <Action>(Back)
+":nmap <c-i> <Action>(Forward)
+
 " but preserve ideavim defaults
 :map g<c-o> <c-o>
 :map g<c-i> <c-i>
@@ -333,8 +354,6 @@ nmap <leader>gm :action Git.Merge<cr>
 nmap <leader>yr :action Git.ResolveConflicts<cr>
 nmap <leader>yo :action Github.Open.In.Browser<cr>
 
-" Refactorings
-
 " VCS operations
 nmap <leader>yy :action Vcs.Show.Local.Changes<cr>
 nmap <leader>yp :action Vcs.QuickListPopupAction<cr>
@@ -351,7 +370,7 @@ nmap <leader>T :action ActivateTerminalToolWindow<cr>
 nmap <leader>G :action ActivateGradleToolWindow<cr>
 
 
-" After block yank and paste, move cursor to the end of operated text and don't override register
+" After block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap y y`]
 vnoremap p "_dP`]
 nnoremap p p`]
@@ -395,38 +414,33 @@ nnoremap <C-o> <C-d>zz
 vnoremap <C-u> <C-u>zz
 vnoremap <C-o> <C-d>zz
 
-" easy window navigation
-nnoremap <a-s-j> gT
-nnoremap <a-s-k> gt
+" easy window navigation TODO: remove?
+" nnoremap <a-s-j> gT
+" nnoremap <a-s-k> gt
 
 " clear the search buffer when hitting return
-nnoremap <leader><cr> :nohlsearch<cr>
+nnoremap <leader><cr> :nohlsearch<cr><cr>
 
 " comment out
 vnoremap gCC :action CommentByBlockComment<CR>
 nnoremap gCC :action CommentByBlockComment<CR>
+vnoremap gcc :action CommentByLineComment<CR>
+nnoremap gcc :action CommentByLineComment<CR>
 
 
 " press `f` to activate AceJump
-:map ff <Action>(AceAction)
+":map ff <Action>(AceAction)
 " press `F` to activate Target Mode
-:map ft <Action>(AceTargetAction)
+":map ft <Action>(AceTargetAction)
 " press `g` to activate Line Mode
-:map fl <Action>(AceLineAction)
-
-" close stuff
-:map <leader>qq <Action>(CloseEditor)
-:map <leader>QQ <Action>(CloseAllEditors)
+":map fl <Action>(AceLineAction)
 
 " Increase or decrease font size
 nnoremap <C-=> :action EditorIncreaseFontSize<cr>
 nnoremap <C--> :action EditorDecreaseFontSize<cr>
 
 " reactivate some IDEA shortcuts
-:map <c-s> <Action>(SaveAll)
-
-
-
+:map <leader>sa <Action>(SaveAll)
 
 " Bookmarks
 nmap `0 <Action>(GotoBookmark0)
@@ -466,41 +480,41 @@ nmap `x <Action>(GotoBookmarkX)
 nmap `y <Action>(GotoBookmarkY)
 nmap `z <Action>(GotoBookmarkZ)
 
-nmap m0 <Action>(ToggleBookmark0)
-nmap m1 <Action>(ToggleBookmark1)
-nmap m2 <Action>(ToggleBookmark2)
-nmap m3 <Action>(ToggleBookmark3)
-nmap m4 <Action>(ToggleBookmark4)
-nmap m5 <Action>(ToggleBookmark5)
-nmap m6 <Action>(ToggleBookmark6)
-nmap m7 <Action>(ToggleBookmark7)
-nmap m8 <Action>(ToggleBookmark8)
-nmap m9 <Action>(ToggleBookmark9)
-nmap ma <Action>(ToggleBookmarkA)
-nmap mb <Action>(ToggleBookmarkB)
-nmap mc <Action>(ToggleBookmarkC)
-nmap md <Action>(ToggleBookmarkD)
-nmap me <Action>(ToggleBookmarkE)
-nmap mf <Action>(ToggleBookmarkF)
-nmap mg <Action>(ToggleBookmarkG)
-nmap mh <Action>(ToggleBookmarkH)
-nmap mi <Action>(ToggleBookmarkI)
-nmap mj <Action>(ToggleBookmarkJ)
-nmap mk <Action>(ToggleBookmarkK)
-nmap ml <Action>(ToggleBookmarkL)
-nmap mm <Action>(ToggleBookmarkM)
-nmap mn <Action>(ToggleBookmarkN)
-nmap mo <Action>(ToggleBookmarkO)
-nmap mp <Action>(ToggleBookmarkP)
-nmap mq <Action>(ToggleBookmarkQ)
-nmap mr <Action>(ToggleBookmarkR)
-nmap ms <Action>(ToggleBookmarkS)
-nmap mt <Action>(ToggleBookmarkT)
-nmap mu <Action>(ToggleBookmarkU)
-nmap mv <Action>(ToggleBookmarkV)
-nmap mw <Action>(ToggleBookmarkW)
-nmap mx <Action>(ToggleBookmarkX)
-nmap my <Action>(ToggleBookmarkY)
-nmap mz <Action>(ToggleBookmarkZ)
+nmap .0 <Action>(ToggleBookmark0)
+nmap .1 <Action>(ToggleBookmark1)
+nmap .2 <Action>(ToggleBookmark2)
+nmap .3 <Action>(ToggleBookmark3)
+nmap .4 <Action>(ToggleBookmark4)
+nmap .5 <Action>(ToggleBookmark5)
+nmap .6 <Action>(ToggleBookmark6)
+nmap .7 <Action>(ToggleBookmark7)
+nmap .8 <Action>(ToggleBookmark8)
+nmap .9 <Action>(ToggleBookmark9)
+nmap .a <Action>(ToggleBookmarkA)
+nmap .b <Action>(ToggleBookmarkB)
+nmap .c <Action>(ToggleBookmarkC)
+nmap .d <Action>(ToggleBookmarkD)
+nmap .e <Action>(ToggleBookmarkE)
+nmap .f <Action>(ToggleBookmarkF)
+nmap .g <Action>(ToggleBookmarkG)
+nmap .h <Action>(ToggleBookmarkH)
+nmap .i <Action>(ToggleBookmarkI)
+nmap .j <Action>(ToggleBookmarkJ)
+nmap .k <Action>(ToggleBookmarkK)
+nmap .l <Action>(ToggleBookmarkL)
+nmap .m <Action>(ToggleBookmarkM)
+nmap .n <Action>(ToggleBookmarkN)
+nmap .o <Action>(ToggleBookmarkO)
+nmap .p <Action>(ToggleBookmarkP)
+nmap .q <Action>(ToggleBookmarkQ)
+nmap .r <Action>(ToggleBookmarkR)
+nmap .s <Action>(ToggleBookmarkS)
+nmap .t <Action>(ToggleBookmarkT)
+nmap .u <Action>(ToggleBookmarkU)
+nmap .v <Action>(ToggleBookmarkV)
+nmap .w <Action>(ToggleBookmarkW)
+nmap .x <Action>(ToggleBookmarkX)
+nmap .y <Action>(ToggleBookmarkY)
+nmap .z <Action>(ToggleBookmarkZ)
 
 nmap \p <Action>(ParameterNameHints)
