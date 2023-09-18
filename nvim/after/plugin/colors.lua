@@ -1,11 +1,8 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
+vim.cmd([[hi CursorLine guibg=#403658]])
+vim.cmd([[hi ColorColumn guibg=#26203f]])
 
-	vim.cmd("hi SignColumn ctermbg=none guibg=none")
-	vim.cmd("hi ColorColumn ctermbg=none guibg=#1e222a")
-
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-ColorMyPencils()
+vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')

@@ -1,33 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.workspace.library": [
-        "/home/nroot/.config/nvim",
-        "/home/nroot/.local/share/nvim/site",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/Comment.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/LuaSnip",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/fidget.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/mason.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/packer.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/vim-sleuth",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-        "/usr/share/nvim/runtime",
-        "/usr/lib/x86_64-linux-gnu/nvim",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
-        "/home/nroot/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
-        "${3rd}/luassert/library"
+    "diagnostics.disable": [
+        "undefined-global"
     ]
 }
