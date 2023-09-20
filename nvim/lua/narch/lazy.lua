@@ -84,13 +84,15 @@ require("lazy").setup({
             { "nvim-lua/plenary.nvim" }, 
         },
     },
-    { "nycrat/todo.nvim" }, 
-    { "nycrat/gui-fonts.nvim" }, 
+    { "nycrat/todo.nvim" },
+    { "nycrat/gui-fonts.nvim" },
 
     -- Looks
-    { "laytan/cloak.nvim" }, 
-    { "nvim-lualine/lualine.nvim" }, 
-    { "lukas-reineke/indent-blankline.nvim" }, 
-    --{ "nycrat/rose-pine" }, 
-    { "artanikin/vim-synthwave84" }, 
+    { "laytan/cloak.nvim" },
+    { "nvim-lualine/lualine.nvim" },
+    { "lukas-reineke/indent-blankline.nvim" },
+    { 'rose-pine/neovim', name = 'rose-pine', lazy = false},
+    { 'morhetz/gruvbox', lazy = false },
+    { 'folke/tokyonight.nvim', lazy = false },
+    { "artanikin/vim-synthwave84", lazy = false },
 })
