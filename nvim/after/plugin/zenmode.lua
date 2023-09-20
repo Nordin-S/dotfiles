@@ -1,6 +1,7 @@
 vim.keymap.set("n", "<leader>zm", function()
     require("zen-mode").setup {
         window = {
+            backdrop = 1.0,
             width = 90,
             options = { }
         },
@@ -9,14 +10,13 @@ vim.keymap.set("n", "<leader>zm", function()
     vim.wo.wrap = false
     vim.wo.number = true
     vim.wo.rnu = true
-    -- ColorMyPencils()
 end)
-
 
 vim.keymap.set("n", "<leader>zM", function()
     require("zen-mode").setup {
         window = {
-            width = 80,
+            backdrop = 0.0,
+            width = 90,
             options = { }
         },
     }
@@ -24,6 +24,4 @@ vim.keymap.set("n", "<leader>zM", function()
     vim.wo.wrap = false
     vim.wo.number = true
     vim.wo.rnu = true
-    -- vim.opt.colorcolumn = "80"
-    -- ColorMyPencils()
 end)

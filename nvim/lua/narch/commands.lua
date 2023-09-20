@@ -106,3 +106,4 @@ vim.api.nvim_create_user_command("WordCount", function()
     wordCountOn = true
   end
 end, {})
+
