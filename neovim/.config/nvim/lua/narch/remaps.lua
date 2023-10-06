@@ -10,10 +10,10 @@ local silent = { silent = true }
 inoremap("jj", "<Esc>")
 
 -- move between splits
-nnoremap("<C-L>", "<C-W>l")
-nnoremap("<C-H>", "<C-W>h")
-nnoremap("<C-J>", "<C-W>j")
-nnoremap("<C-K>", "<C-W>k")
+-- nnoremap("<C-L>", "<C-W>l")
+-- nnoremap("<C-H>", "<C-W>h")
+-- nnoremap("<C-J>", "<C-W>j")
+-- nnoremap("<C-K>", "<C-W>k")
 
 -- resize splits
 nnoremap("<A-h>", "2<C-W>>")

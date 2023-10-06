@@ -40,7 +40,7 @@ local options = {
 
 	title = true,
 	titlestring = "Neovim - %t",
-	guifont = "MesloLGS NF:h18"
+	guifont = "Fira Code NF:h18"
 }
 
 vim.opt.shortmess:append("IsF")
