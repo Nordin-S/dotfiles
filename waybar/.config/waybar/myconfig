@@ -1,0 +1,70 @@
+// by Nordin-S (2023) 
+// ----------------------------------------------------- 
+//
+{
+    // Position TOP
+    "position": "top",
+    "margin-top": 0,
+    "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-bottom": 0,
+    // "margin-top": 0,
+
+     // General Settings
+    "layer": "top",
+    "height": 20,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["~/.config/waybar/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "wlr/taskbar",
+        "group/quicklinks",
+        "hyprland/window"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "custom/youtube",
+        "custom/updates",
+        "pulseaudio",
+        "bluetooth",
+        "battery", 
+        "group/hardware",
+        "network",
+        "clock",
+        "custom/exit",
+    ],
+
+    // Group Quicklinks
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/filemanager",
+            "custom/chatgpt",
+            "custom/windowsvm"
+         ]
+    },
+
+    // Group Hardware
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "disk",
+            "cpu",
+            "memory"
+        ]
+    }
+}
