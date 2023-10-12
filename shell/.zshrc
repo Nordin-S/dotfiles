@@ -1,3 +1,4 @@
+USE_POWERLINE="false"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -21,7 +22,7 @@ bindkey -s '\ef' '~/narch-scripts/fix-btusb.sh'
 # -----------------------------------------------------
 # Exports 
 # -----------------------------------------------------
-export PATH="$PATH:$HOME/.local/bin:$HOME/scripts"
+export PATH="$PATH:$HOME/.local/bin:$HOME/narch-scripts"
 
 # -----------------------------------------------------
 # plugin manager 
@@ -30,17 +31,13 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/scripts"
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-plug "zap-zsh/zap-prompt"
+# plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "ajeetdsouza/zoxide"
 plug "z-shell/F-Sy-H"
 plug "esc/conda-zsh-completion"
-plug "wintermi/zsh-starship"
-
-# Example theme - fix this if powerlevel10k support zap
-# plug "zap-zsh/zap-prompt"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# plug "wintermi/zsh-starship"
+# plug "starship/starship"
 
 # -----------------------------------------------------
 # ALIASES
@@ -51,10 +48,10 @@ alias pf='pfetch'
 alias ls='exa -al'
 alias shutdown='systemctl poweroff'
 alias v='nvim'
-alias ts='~/.config/scripts/snapshot.sh'
+alias ts='~/narch-scripts/snapshot.sh'
 alias matrix='cmatrix'
 # alias od='~/private/onedrive.sh'
-alias rw='~/.config/waybar/reload.sh'
+# alias rw='~/.config/waybar/reload.sh'
 alias winclass="xprop | grep 'CLASS'"
 alias dot="cd ~/.dotfiles"
 
@@ -91,10 +88,10 @@ alias w='~/narch-scripts/updatewal-swww.sh'
 # VIRTUAL MACHINE
 # -----------------------------------------------------
 
-alias vm='~/private/launchvm.sh'
-alias lg='~/dotfiles/scripts/looking-glass.sh'
-alias vmstart='virsh --connect qemu:///system start win11'
-alias vmstop='virsh --connect qemu:///system destroy win11'
+# alias vm='~/private/launchvm.sh'
+# alias lg='~/dotfiles/scripts/looking-glass.sh'
+# alias vmstart='virsh --connect qemu:///system start win11'
+# alias vmstop='virsh --connect qemu:///system destroy win11'
 
 # -----------------------------------------------------
 # EDIT CONFIG FILES
@@ -104,6 +101,7 @@ alias confp='nvim ~/.config/picom/picom.conf'
 alias confb='nvim ~/.bashrc'
 alias confz='nvim ~/.zshrc'
 alias confh='nvim ~/.config/hypr/hyprland.conf'
+alias conft='nvim ~/.config/tmux/tmux.conf'
 
 # -----------------------------------------------------
 # EDIT NOTES
