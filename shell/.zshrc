@@ -23,6 +23,8 @@ bindkey -s '\ef' '~/narch-scripts/fix-btusb.sh'
 # Exports 
 # -----------------------------------------------------
 export PATH="$PATH:$HOME/.local/bin:$HOME/narch-scripts"
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 
 # -----------------------------------------------------
 # plugin manager 
@@ -119,7 +121,9 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 # -----------------------------------------------------
 # PYWAL
 # -----------------------------------------------------
-cat ~/.cache/wal/sequences
+# cat ~/.cache/wal/sequences
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 #
 
 # -----------------------------------------------------
