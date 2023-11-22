@@ -22,8 +22,12 @@ bindkey -s '\ef' '~/narch-scripts/fix-btusb.sh'
 # -----------------------------------------------------
 # Exports 
 # -----------------------------------------------------
-export PATH="$PATH:$HOME/.local/bin:$HOME/narch-scripts"
-export QT_QPA_PLATFORMTHEME=qt5ct
+# export PATH="$PATH:$HOME/.local/bin:$HOME/narch-scripts"
+# export QT_QPA_PLATFORMTHEME=qt5ct
+# Created by `pipx` on 2023-11-21 19:16:59
+# export PATH="$PATH:/home/narch/.local/bin"
+export PATH="/home/narch/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/narch/narch-scripts:$PATH"
+
 
 
 # -----------------------------------------------------
@@ -244,5 +248,10 @@ fi
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):                    
 #                                                                                             
 eval "$(zoxide init zsh)"      
+
+# pipx autocomplition
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
 
 eval "$(starship init zsh)" # keep at the end of all lines
