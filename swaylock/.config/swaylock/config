@@ -1,0 +1,38 @@
+# ~/.config/swaylock/config
+
+# Set the background image path
+# image=~/wallpapers/pennywise_it.jpeg
+
+# Set the color configuration from pywal-generated scheme
+color=01010190
+inside-color=00000000
+line-color=cbdfe5
+ring-color=010101
+text-color=f80000
+
+# Set the layout colors
+layout-bg-color=59778850
+layout-text-color=f8f8f2
+
+# Set the colors for various states using pywal-generated scheme
+inside-clear-color=59778850
+line-clear-color=010101
+ring-clear-color=59778850
+text-clear-color=010101
+
+inside-ver-color=9B4E5750
+line-ver-color=010101
+ring-ver-color=9B4E5750
+text-ver-color=010101
+
+inside-wrong-color=9B4E5750
+line-wrong-color=010101
+ring-wrong-color=9B4E5750
+text-wrong-color=010101
+
+# Set the highlight colors using pywal-generated scheme
+bs-hl-color=9B4E57
+key-hl-color=597788
+
+# Set the caps lock text color
+text-caps-lock-color=f8f8f2
