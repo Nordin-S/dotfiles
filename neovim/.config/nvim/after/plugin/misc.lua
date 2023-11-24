@@ -63,6 +63,8 @@ nnoremap("<leader>oo", "<Cmd>TodoClose<CR>", silent)
 nnoremap("<leader>ol", "<Cmd>TodoOpenFileList<CR>", silent)
 
 for i = 1, 10 do
-  nnoremap("<leader>" .. i % 10, function() harpoon_ui.nav_file(i) end, silent)
-  nnoremap("<leader>o" .. i % 10, "<Cmd>TodoOpenIndex " .. i .. "<CR>", silent)
+	nnoremap("<leader>" .. i % 10, function()
+		harpoon_ui.nav_file(i)
+	end, silent)
+	nnoremap("<leader>o" .. i % 10, "<Cmd>TodoOpenIndex " .. i .. "<CR>", silent)
 end
