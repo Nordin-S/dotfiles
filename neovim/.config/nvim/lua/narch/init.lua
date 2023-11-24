@@ -3,4 +3,4 @@ require("narch.commands")
 require("narch.lazy")
 require("narch.remaps")
 
-vim.cmd([[colorscheme synthwave84]])
+vim.cmd([[colorscheme solarized-osaka]])
