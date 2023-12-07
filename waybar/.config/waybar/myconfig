@@ -13,13 +13,12 @@
         ],
         "modules-right": [
           "custom/updates",
-          "custom/media",
-          "battery",
-          "clock",
-          "clock#date",
           "pulseaudio",
           "bluetooth",
           "network",
+          "battery",
+          "clock",
+          "custom/notification",
           "custom/session"
         ],
         "hyprland/window": {
@@ -42,18 +41,26 @@
             "2": "󰖟",
             "3": "",
             "4": "",
-            "5": "",
-            "6": "",
+            "5": "",
+            "6": "",
+            "7": "󰖟",
+            "8": "",
+            "9": "",
+            "10": "",
             "default": ""
           },
-              "persistent-workspaces": {
-                  "1": [],
-                  "2": [],
-                  "3": [],
-                  "4": [],
-                  "5": [],
-                  "6": [],
-              }
+          "persistent-workspaces": {
+              "1": [],
+              "2": [],
+              "3": [],
+              "4": [],
+              "5": [],
+              "6": [],
+              "7": [],
+              "8": [],
+              "9": [],
+              "10": [],
+          }
         },
         // Updates Count
         "custom/updates": {
@@ -61,164 +68,30 @@
             "tooltip-format": "{}",
             "escape": true,
             "return-type": "json",       
-            "exec": "~/narch-scripts/updates.sh",
+            "exec": "~/bin/updates.sh",
             "restart-interval": 60,
-            "on-click": "kitty -e ~/narch-scripts/installupdates.sh",
+            "on-click": "kitty -e ~/bin/installupdates.sh",
             "tooltip": false
         },
-        // Battery
-        "battery": {
-            "states": {
-                "good": 70,
-                "warning": 30,
-                "critical": 15
-            },
-            "format": "{icon}   {capacity}%",
-            "format-charging": "  {capacity}%",
-            "format-plugged": "  {capacity}%",
-            "format-alt": "{icon}  {time}",
-            // "format-good": "", // An empty format will hide the module
-            // "format-full": "",
-            "format-icons": [" ", " ", " ", " ", " "]
-        },
-        "custom/media": {
-          "format": "{icon} {}",
-          "return-type": "json",
-          "max-length": 15,
-          "format-icons": {
-            "spotify": "",
-            "spotifyd": "",
-            "firefox": "",
-            "brave": "",
-            "default": ""
-          },
-          "escape": true,
-          "on-click": "playerctl play-pause",
-          "on-scroll-up": "playerctl position 5+",
-          "on-scroll-down": "playerctl position 5-",
-          "exec": "$HOME/bin/mediaplayer.py 2> /dev/null"
-        },
-        "clock": {
-          "interval": 60,
-          "format": "{:  %I:%M%p}"
-        },
-        "clock#date": {
-          "interval": 60,
-          "format": "{:  %A %d %b}",
-          "today-format": "<span color='#c395b4'><b>{}</b></span>",
-          "format-calendar": "<span color='#dcdcdc'>{}</span>",
-          "format-calendar-weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
-          "format-calendar-weekdays": "<span color='#e2ccdb'><b>{}</b></span>",
-          "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
-        },
-        "bluetooth": {
-          "format-disabled": "",
-          "format-off": "",
-          "interval": 30,
-          "on-click": "blueman-manager",
-          "format": "",
-          "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-          "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-          "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-          "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-        },
-        "custom/session": {
-          "format": "",      
-          "toolip": false,
-          "on-click": "wleave"
-        },
-        "pulseaudio": {
-          "format": "{icon}  {volume}% ",
-          "format-bluetooth": " {volume}% ",
-          "format-muted": "婢",
-          "format-icons": {
-            "hdmi": "",
-            "default": [
-              "婢",
-              "",
-              "",
-              ""
-            ]
-          },
-          "scroll-step": 1,
-          "on-click": "pavucontrol"
-        },
-        "network": {
-          "format": "{ifname}",
-          "format-wifi": "{essid} ({signalStrength}%) ",
-          "format-ethernet": "",
-          "format-disconnected": "", //An empty format will hide the module.
-          "tooltip-format": "{ifname} via {gwaddr} ",
-          "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-          "tooltip-format-ethernet": "  {ipaddr}   {bandwidthDownBits}    {bandwidthUpBits}",
-          "tooltip-format-disconnected": "",
-          "max-length": 50
-        }
-    },
-    {
-        "layer": "top",
-        "output": "eDP-1",
-        "margin-top": 0,
-        "modules-center": [
-          "hyprland/workspaces"
-        ],
-        "modules-left": [
-          "hyprland/window"
-        ],
-        "modules-right": [
-          "custom/updates",
-          "custom/media",
-          "battery",
-          "clock",
-          "clock#date",
-          "pulseaudio",
-          "bluetooth",
-          "network",
-          "custom/session"
-        ],
-        "hyprland/window": {
-            "max-length": 40,
-            "rewrite": {
-                "(.*) - Brave": "$1",
-                "(.*) - Chromium": "$1",
-                "(.*) - Brave Search": "$1",
-                //"(.*) - Outlook": "$1",
-                //"(.*) Microsoft Teams": "$1"
-            },
-            "separate-outputs": false
-        },
-        "hyprland/workspaces": {
+        "custom/notification": {
+          "tooltip": false,
           "format": "{icon}",
-          "on-click": "activate",
-          "all-outputs": true,
           "format-icons": {
-            "1": "",
-            "2": "󰖟",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "default": ""
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
           },
-              "persistent-workspaces": {
-                  "1": [],
-                  "2": [],
-                  "3": [],
-                  "4": [],
-                  "5": [],
-                  "6": [],
-              }
-        },
-        // Updates Count
-        "custom/updates": {
-            "format": "  {}",
-            "tooltip-format": "{}",
-            "escape": true,
-            "return-type": "json",       
-            "exec": "~/narch-scripts/updates.sh",
-            "restart-interval": 60,
-            "on-click": "kitty -e ~/narch-scripts/installupdates.sh",
-            "tooltip": false
+          "return-type": "json",
+          "exec-if": "which swaync-client",
+          "exec": "swaync-client -swb",
+          "on-click": "swaync-client -t -sw",
+          "on-click-right": "swaync-client -d -sw",
+          "escape": true
         },
         // Battery
         "battery": {
@@ -235,35 +108,9 @@
             // "format-full": "",
             "format-icons": [" ", " ", " ", " ", " "]
         },
-        "custom/media": {
-          "format": "{icon} {}",
-          "return-type": "json",
-          "max-length": 15,
-          "format-icons": {
-            "spotify": "",
-            "spotifyd": "",
-            "firefox": "",
-            "brave": "",
-            "default": ""
-          },
-          "escape": true,
-          "on-click": "playerctl play-pause",
-          "on-scroll-up": "playerctl position 5+",
-          "on-scroll-down": "playerctl position 5-",
-          "exec": "$HOME/bin/mediaplayer.py 2> /dev/null"
-        },
         "clock": {
           "interval": 60,
-          "format": "{:  %I:%M%p}"
-        },
-        "clock#date": {
-          "interval": 60,
-          "format": "{:  %A %d %b}",
-          "today-format": "<span color='#c395b4'><b>{}</b></span>",
-          "format-calendar": "<span color='#dcdcdc'>{}</span>",
-          "format-calendar-weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
-          "format-calendar-weekdays": "<span color='#e2ccdb'><b>{}</b></span>",
-          "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+          "format": "{:%H:%M}"
         },
         "bluetooth": {
           "format-disabled": "",
@@ -309,4 +156,3 @@
           "max-length": 50
         }
     }
-]
