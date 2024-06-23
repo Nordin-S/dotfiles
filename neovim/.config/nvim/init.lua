@@ -5,4 +5,4 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.loader.enable()
 
-require("narch")
+require("nauot")

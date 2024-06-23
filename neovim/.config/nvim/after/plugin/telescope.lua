@@ -1,4 +1,4 @@
-local nnoremap = require("narch.keymap").nnoremap
+local nnoremap = require("nauot.keymap").nnoremap
 
 local telescope_builtin = require("telescope.builtin")
 local silent = { silent = true }

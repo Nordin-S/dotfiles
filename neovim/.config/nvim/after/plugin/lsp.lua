@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global
 local lsp = require("lsp-zero").preset({})
-local Remap = require("narch.keymap")
+local Remap = require("nauot.keymap")
 local inoremap = Remap.inoremap
 local nnoremap = Remap.nnoremap
 

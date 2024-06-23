@@ -1,4 +1,4 @@
-local nnoremap = require("narch.keymap").nnoremap
+local nnoremap = require("nauot.keymap").nnoremap
 local dap = require("dap")
 local dapui = require("dapui")
 

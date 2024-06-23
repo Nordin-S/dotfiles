@@ -1,4 +1,4 @@
-local Remap = require("narch.keymap")
+local Remap = require("nauot.keymap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 local vnoremap = Remap.vnoremap
