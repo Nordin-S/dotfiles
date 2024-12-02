@@ -45,7 +45,8 @@ require("lazy").setup({
 	-- Nice!?
 	{ "numToStr/Comment.nvim" },
 	{ "windwp/nvim-autopairs" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	-- Ensure ts_context_commentstring is loaded correctly
+	{ "JoosepAlviste/nvim-ts-context-commentstring" },  -- Ensure this is loaded for comment context
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{ "kylechui/nvim-surround" },
@@ -73,7 +74,10 @@ require("lazy").setup({
 
 	-- Debugging
 	{ "mfussenegger/nvim-dap" },
-	{ "rcarriga/nvim-dap-ui" },
+	{ 
+		"rcarriga/nvim-dap-ui",
+        	dependencies ={{ "nvim-neotest/nvim-nio", lazy = false} },
+    	},
 	{ "theHamsta/nvim-dap-virtual-text" },
 	{ "nvim-telescope/telescope-dap.nvim" },
 
@@ -102,3 +106,4 @@ require("lazy").setup({
 	{ "artanikin/vim-synthwave84", lazy = false },
 	{ "craftzdog/solarized-osaka.nvim", lazy = false },
 })
+

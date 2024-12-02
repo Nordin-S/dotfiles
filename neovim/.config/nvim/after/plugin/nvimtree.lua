@@ -15,6 +15,7 @@ local function my_on_attach(bufnr)
 	vim.keymap.set("n", "z", api.tree.change_root_to_node, opts("CD"))
 end
 
+-- nvim-tree setup
 require("nvim-tree").setup({
 	on_attach = my_on_attach,
 	view = {
@@ -35,6 +36,12 @@ require("nvim-tree").setup({
 	git = { enable = true, ignore = false, timeout = 500 },
 })
 
+-- Key mappings
 nnoremap("<leader><tab>", "<Cmd>NvimTreeToggle<CR>", silent)
--- nnoremap("<leader>f<tab>", "<Cmd>NvimTreeFindFileToggle<CR>", silent)
 nnoremap("<leader>z", "<Cmd>NvimTreeCollapse<CR>", silent)
+
+-- ts_context_commentstring setup
+require('ts_context_commentstring').setup {}
+
+-- Disable the deprecated nvim-treesitter context_commentstring module
+vim.g.skip_ts_context_commentstring_module = true

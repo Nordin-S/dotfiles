@@ -17,7 +17,6 @@ require("lualine").setup({
 })
 
 require("nvim-treesitter.configs").setup({
-	context_commentstring = { enable = true },
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -35,6 +34,9 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+-- Set up ts_context_commentstring for dynamic comment strings
+require('ts_context_commentstring').setup {}
+
 require("nvim-autopairs").setup()
 require("nvim-surround").setup()
 require("cloak").setup()
@@ -48,8 +50,7 @@ local spectre = require("spectre")
 local harpoon_ui = require("harpoon.ui")
 spectre.setup()
 
--- keymaps
-
+-- Keymaps
 nnoremap("<leader>s", spectre.open)
 vnoremap("<leader>s", spectre.open_visual)
 nnoremap("<leader>u", "<Cmd>UndotreeToggle<CR>", silent)
@@ -68,3 +69,4 @@ for i = 1, 10 do
 	end, silent)
 	nnoremap("<leader>o" .. i % 10, "<Cmd>TodoOpenIndex " .. i .. "<CR>", silent)
 end
+

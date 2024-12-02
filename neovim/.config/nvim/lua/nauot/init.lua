@@ -3,4 +3,5 @@ require("nauot.commands")
 require("nauot.lazy")
 require("nauot.remaps")
 
-vim.cmd([[colorscheme solarized-osaka]])
+--vim.cmd([[colorscheme solarized-osaka]])
+vim.cmd([[colorscheme rose-pine]])
