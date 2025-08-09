@@ -29,6 +29,31 @@ vim.keymap.set("n", "<leader>zM", function()
   vim.wo.rnu = true
 end)
 
+vim.keymap.set("n", "<leader>rn", function()
+  local file_name = vim.fn.expand("%")
+  local file_type = vim.bo.filetype
+  local cmd = ""
+
+  if file_type == "python" then
+    cmd = "python3 " .. file_name
+  elseif file_type == "c" then
+    cmd = "gcc " .. file_name .. " -o " .. file_name:gsub("%.c$", "") .. " && " .. file_name:gsub("%.c$", "")
+  elseif file_type == "cpp" then
+    cmd = "g++ " .. file_name .. " -o " .. file_name:gsub("%.cpp$", "") .. " && " .. file_name:gsub("%.cpp$", "")
+  elseif file_type == "java" then
+    cmd = "javac " .. file_name .. " && java " .. file_name:gsub("%.java$", "")
+  elseif file_type == "javascript" then
+    cmd = "node " .. file_name
+  elseif file_type == "rust" then
+    cmd = "cargo run"
+  else
+    print("No run configuration for filetype: " .. file_type)
+    return
+  end
+
+  vim.cmd("split | terminal " .. cmd)
+end, { desc = "Run current file" })
+
 -- local dap = require("dap")
 -- local dapui = require("dapui")
 --
